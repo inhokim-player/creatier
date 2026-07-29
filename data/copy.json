@@ -1,0 +1,44 @@
+{
+  "brand": {
+    "name": "크라잇에이터",
+    "footer": "세금 금액은 참고용 추정치입니다"
+  },
+  "dashboard": {
+    "title": "수익 · 세금 계산",
+    "subtitle": "YouTube · Instagram · TikTok 수익 입력 → 세금 · 부가세 · 서류",
+    "ytdLabel": "올해 누적 순수익",
+    "payableLabel": "올해 납부 예상",
+    "payableNote": "실수령 기준 · 원천징수 선납 공제 · 부가세 포함 간이 추정",
+    "profileTitle": "내 정보",
+    "namePlaceholder": "활동명",
+    "vatLabel": "부가세 사업자",
+    "loadBtn": "불러오기",
+    "inputTitle": "수익 입력",
+    "inputSubmit": "수익 추가 · 세금 계산",
+    "quickLinksTitle": "바로가기",
+    "platformTaxTitle": "플랫폼별 누적",
+    "listEntries": "입력 내역",
+    "filingTitle": "신고 일정",
+    "docsTitle": "준비 서류 안내",
+    "docsDesc": "참고용 · 홈택스·세무사 제출 전 확인하세요.",
+    "abuseHint": "계산 후 활동명·금액 자동 삭제 · 활동명당 하루 3회 · YouTube·Instagram·TikTok 계정 연동 없음",
+    "taxDisclaimer": "간이 추정치입니다. 실제 경비·공제·감면에 따라 달라집니다. 세무사·홈택스로 최종 확인하세요."
+  },
+  "login": {
+    "title": "관리자 로그인",
+    "subtitleAdmin": "플랫폼 집계",
+    "emailLabel": "이메일",
+    "passwordLabel": "비밀번호",
+    "submit": "로그인",
+    "errors": {
+      "invalid_credentials": "이메일 또는 비밀번호가 맞지 않습니다."
+    }
+  },
+  "admin": {
+    "title": "플랫폼 집계",
+    "statCreators": "크리에이터 수",
+    "statEntries": "입력 건수",
+    "statNet": "누적 순수익",
+    "recentTitle": "최근 입력"
+  }
+}
