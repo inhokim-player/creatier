@@ -1,0 +1,17 @@
+# Railway Variables — GitHub에는 example만 올립니다. 실제 값은 creatier/RAILWAY-환경변수-복사용.txt (로컬 전용)
+
+CREATIER_ENV=production
+CREATIER_PUBLIC_URL=https://your-app.up.railway.app
+AUTH_SECRET=48자이상랜덤문자열
+CREATIER_ADMIN_EMAIL=your@gmail.com
+CREATIER_ADMIN_PASSWORD=your-password
+CREATIER_DATABASE=/data/creatier.db
+CREATIER_CONTACT_EMAIL=your@gmail.com
+
+# Instagram · TikTok OAuth (수익 인증 공유 시)
+META_APP_ID=
+META_APP_SECRET=
+TIKTOK_CLIENT_KEY=
+TIKTOK_CLIENT_SECRET=
+
+# 넣지 말 것: PORT, CREATIER_PORT, CREATIER_OAUTH_DEV

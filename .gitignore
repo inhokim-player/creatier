@@ -1,0 +1,12 @@
+.env
+*.env.local
+.railway-auth-secret
+data/creatier.db
+data/creatier.db-*
+data/mail-log.json
+RAILWAY-VARIABLES.txt
+RAILWAY-환경변수-복사용.txt
+GITHUB-RAILWAY-완전세팅.txt
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>로그인</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="/styles/app.css" />
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+</head>
+<body class="pt-app">
+  <header class="pt-top">
+    <a href="/" class="pt-link">← 돌아가기</a>
+    <span class="pt-wordmark">관리자</span>
+    <span style="width:48px;"></span>
+  </header>
+  <main class="pt-main">
+    <section class="pt-card">
+      <h1 style="margin:0 0 8px;font-size:1.125rem;font-weight:700;">운영자 로그인</h1>
+      <p class="pt-auth-hint" style="margin:0 0 16px;">크라잇에이터 <strong>운영자 전용</strong>입니다. Instagram·YouTube·TikTok 계정과 무관하며, 일반 이용(세금 계산)에는 로그인이 필요 없습니다.</p>
+      <form id="login-form">
+        <input type="email" id="login-email" class="pt-input" style="width:100%;margin-bottom:8px;" placeholder="이메일" autocomplete="username" required />
+        <input type="password" id="login-password" class="pt-input" style="width:100%;margin-bottom:12px;" placeholder="비밀번호" autocomplete="current-password" required />
+        <p id="login-error" class="hidden" style="color:#e11d48;font-size:0.8125rem;margin:0 0 8px;"></p>
+        <button type="submit" class="pt-btn pt-btn-primary" style="width:100%;">로그인</button>
+      </form>
+    </section>
+  </main>
+  <script src="/js/auth.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

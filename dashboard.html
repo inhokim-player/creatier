@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f2f4f6" />
+  <title>크라잇에이터</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="/styles/app.css" />
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+  <script src="/js/copy-loader.js" defer></script>
+</head>
+<body class="pt-app">
+  <header class="pt-top">
+    <span class="pt-wordmark" data-copy="brand.name">크라잇에이터</span>
+    <a href="/login" class="pt-link" title="운영자 전용">운영자</a>
+  </header>
+
+  <main class="pt-main">
+    <div id="conn-banner" class="pt-conn hidden" role="alert"></div>
+
+    <section class="pt-card pt-entry-card" id="entry-panel">
+      <div class="pt-entry-head">
+        <div class="pt-entry-head-text">
+          <h2 class="pt-entry-title">활동명</h2>
+          <p class="pt-entry-sub">채널명 입력 → 플랫폼별 월 수익 → 세금 계산</p>
+        </div>
+        <button type="button" class="pt-btn pt-btn-ghost pt-btn-sm" id="btn-reset">처음부터</button>
+      </div>
+
+      <div class="pt-name-wrap">
+        <input type="text" class="pt-name-input" id="creator-name" maxlength="40" placeholder="예) 내 채널명" autocomplete="off" spellcheck="false" />
+      </div>
+
+      <div class="pt-entry-toolbar">
+        <label class="pt-chip pt-chip-sm"><input type="checkbox" id="vat-registered" /> 부가세 사업자</label>
+        <span class="pt-entry-pill">하루 3회</span>
+        <span class="pt-entry-pill">계산 후 자동삭제</span>
+        <a href="/terms" class="pt-entry-link">약관</a>
+        <a href="/report" class="pt-entry-link">문의</a>
+      </div>
+
+      <div class="pt-entry-divider" aria-hidden="true"></div>
+
+      <div id="oauth-bar" class="pt-oauth-bar hidden">
+        <span class="pt-oauth-label">로그인 연결</span>
+        <button type="button" class="pt-oauth-btn" id="btn-oauth-instagram" data-platform="instagram">Instagram</button>
+        <button type="button" class="pt-oauth-btn" id="btn-oauth-tiktok" data-platform="tiktok">TikTok</button>
+      </div>
+
+      <p class="pt-label pt-label-tight">플랫폼 · 이번 달 수익 <span class="pt-label-note">여러 개 선택 가능</span></p>
+      <div class="pt-platforms" id="platform-picker"></div>
+      <div id="platform-amounts" class="pt-amounts-wrap"></div>
+      <form id="entry-form">
+        <button type="submit" class="pt-btn pt-btn-primary pt-btn-block pt-btn-calc" id="entry-submit" disabled>세금 계산</button>
+      </form>
+    </section>
+
+    <section class="pt-card pt-card-flush" id="quick-links-panel">
+      <div class="pt-section-head pt-section-head-compact"><h2>바로가기</h2></div>
+      <div class="pt-quick-links" id="quick-links-grid"></div>
+    </section>
+
+    <section class="pt-card pt-card-flush hidden" id="calc-result-panel">
+      <div class="pt-section-head"><h2>플랫폼별 수익</h2></div>
+      <div id="calc-result-body" class="pt-calc-body"></div>
+      <div id="share-bar" class="pt-share-bar hidden">
+        <button type="button" class="pt-share-btn" id="btn-share">수익 인증 링크 만들기</button>
+        <a class="pt-share-open hidden" id="share-open-link" href="#" target="_blank" rel="noopener noreferrer">링크 열기</a>
+        <span class="pt-share-msg hidden" id="share-msg"></span>
+        <div id="share-social-slot" class="pt-share-social hidden"></div>
+      </div>
+    </section>
+
+    <section class="pt-card pt-card-flush" id="hero-kpi" hidden>
+      <p class="pt-hero-name" id="hero-creator-name" hidden></p>
+      <div class="pt-hero-split">
+        <div class="pt-hero-cell pt-hero-primary">
+          <span class="pt-label">순수익</span>
+          <div class="pt-amount pt-amount-lg" id="kpi-ytd-net">—</div>
+          <p class="pt-hero-sub" id="kpi-ytd-gross">총수익 —</p>
+        </div>
+        <div class="pt-hero-cell pt-hero-accent">
+          <span class="pt-label">납부 예상</span>
+          <div class="pt-amount pt-amount-md" id="kpi-payable">—</div>
+          <p class="pt-hero-sub" id="kpi-payable-sub">종소세 · 부가세</p>
+        </div>
+      </div>
+      <div class="pt-row-3">
+        <div class="pt-stat-cell"><span class="pt-label">수수료</span><div class="pt-amount-sm" id="kpi-fees">—</div></div>
+        <div class="pt-stat-cell"><span class="pt-label">원천징수</span><div class="pt-amount-sm" id="kpi-withholding">—</div></div>
+        <div class="pt-stat-cell"><span class="pt-label">월 준비금</span><div class="pt-amount-sm" id="kpi-month">—</div></div>
+      </div>
+    </section>
+
+    <section class="pt-card" id="hero-tax-detail" hidden>
+      <div class="pt-section-head-inline">
+        <span class="pt-label">세금 상세</span>
+      </div>
+      <p class="pt-tax-basis" id="tax-basis-note"></p>
+      <div class="pt-tax-grid" id="tax-breakdown" style="margin-top:12px;"></div>
+    </section>
+
+    <div id="alert-banner"></div>
+
+    <section class="pt-card pt-card-flush" id="withholding-panel" hidden>
+      <div class="pt-section-head"><h2>원천징수</h2></div>
+      <p class="pt-panel-desc" id="withholding-note"></p>
+      <div id="withholding-list" class="pt-wh-list"></div>
+      <div class="pt-wh-total" id="withholding-total"></div>
+    </section>
+
+    <section class="pt-card pt-card-flush" id="platform-tax-panel" hidden>
+      <div class="pt-section-head"><h2>플랫폼별</h2></div>
+      <div id="platform-tax-list"></div>
+    </section>
+
+    <section class="pt-card pt-card-flush" id="docs-panel" hidden>
+      <div class="pt-section-head"><h2>준비 서류 안내</h2></div>
+      <p class="pt-panel-desc" id="docs-hint">참고용 · 홈택스·세무사 확인</p>
+      <div id="docs-list"></div>
+    </section>
+
+    <section class="pt-card pt-card-flush" id="filing-panel" hidden>
+      <div class="pt-section-head"><h2>신고 일정</h2></div>
+      <ul id="filing-list" class="pt-list"></ul>
+    </section>
+
+    <p class="pt-foot" data-copy="dashboard.taxDisclaimer">간이 추정 · 세무사 확인 권장 · <a href="/terms">이용약관</a></p>
+    <div id="contact-footer-slot"></div>
+  </main>
+
+  <script src="/js/platform-icons.js"></script>
+  <script src="/js/quick-links.js"></script>
+  <script src="/js/social-share.js"></script>
+  <script src="/js/contact-footer.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

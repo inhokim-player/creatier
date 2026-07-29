@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>운영 대시보드</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="/styles/app.css" />
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+</head>
+<body class="pt-app pt-admin">
+  <header class="pt-top">
+    <a href="/" class="pt-link">← 서비스</a>
+    <span class="pt-wordmark">운영</span>
+    <button type="button" class="pt-link" id="btn-logout" style="border:none;background:none;cursor:pointer;">로그아웃</button>
+  </header>
+  <main class="pt-main pt-admin-main">
+    <section class="pt-admin-kpi">
+      <div class="pt-admin-kpi-cell">
+        <span class="pt-admin-kpi-label">이용자</span>
+        <div class="pt-admin-kpi-value" id="stat-users">—</div>
+        <span class="pt-admin-kpi-sub">오늘 <span id="stat-users-today">—</span></span>
+      </div>
+      <div class="pt-admin-kpi-cell pt-admin-kpi-accent">
+        <span class="pt-admin-kpi-label">누적 순수익</span>
+        <div class="pt-admin-kpi-value" id="stat-net">—</div>
+        <span class="pt-admin-kpi-sub">총수익 <span id="stat-gross">—</span></span>
+      </div>
+      <div class="pt-admin-kpi-cell">
+        <span class="pt-admin-kpi-label">누적 계산</span>
+        <div class="pt-admin-kpi-value" id="stat-calcs">—</div>
+        <span class="pt-admin-kpi-sub">납부예상 <span id="stat-payable">—</span></span>
+      </div>
+    </section>
+
+    <section class="pt-card pt-card-flush pt-admin-inbox">
+      <div class="pt-section-head pt-section-head-compact">
+        <h2>접수 · 신고 · 문의</h2>
+        <span class="pt-count" id="stat-inbox-count">0</span>
+      </div>
+      <ul id="reports-list" class="pt-list pt-admin-list"></ul>
+      <p id="inbox-empty" class="pt-empty hidden">접수된 항목이 없습니다.</p>
+    </section>
+  </main>
+  <script src="/js/auth.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

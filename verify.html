@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>수익 인증 · 크라잇에이터</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="/styles/app.css" />
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+</head>
+<body class="pt-app">
+  <header class="pt-top">
+    <a href="/" class="pt-link">← 크라잇에이터</a>
+    <span class="pt-wordmark">수익 인증</span>
+    <span class="pt-link" style="visibility:hidden">·</span>
+  </header>
+  <main class="pt-main" style="max-width:640px;">
+    <div id="verify-loading" class="pt-card pt-entry-card">
+      <p class="pt-entry-sub" style="margin:0;">불러오는 중…</p>
+    </div>
+    <div id="verify-pin-gate" class="pt-card pt-entry-card hidden">
+      <h2 class="pt-entry-title" style="margin:0 0 8px;">PIN 입력</h2>
+      <p class="pt-entry-sub" style="margin:0 0 16px;">이 링크는 PIN으로 보호되어 있습니다.</p>
+      <input type="password" class="pt-input" id="verify-pin" maxlength="4" inputmode="numeric" pattern="[0-9]*" placeholder="숫자 4자리" autocomplete="off" />
+      <button type="button" class="pt-btn pt-btn-primary pt-btn-block pt-btn-calc" id="verify-pin-btn" style="margin-top:12px;">확인</button>
+      <p id="verify-pin-msg" class="pt-auth-hint hidden" style="margin-top:12px;"></p>
+    </div>
+    <div id="verify-body" class="hidden"></div>
+    <div id="verify-error" class="pt-card pt-entry-card hidden">
+      <p class="pt-entry-sub" id="verify-error-msg" style="margin:0;color:#b91c1c;"></p>
+    </div>
+  </main>
+  <div id="contact-footer-slot"></div>
+  <script src="/js/platform-icons.js"></script>
+  <script src="/js/social-share.js"></script>
+  <script src="/js/contact-footer.js"></script>
+  <script src="/js/verify.js"></script>
+</body>
+</html>
